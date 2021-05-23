@@ -4,9 +4,13 @@
 
 A lazy administrator gave permissions to a new hire to change his password. He inadvertently gave the new employee permission to read /etc/passwd and /etc/shadow files and the new employee leaked those files. Can you figure out the kali user's password?
 
+<<<<<<< HEAD
 Hint: rockyou.txt contains a lot of passwords and is often a good place to start in CTFs.
 
 Note: The flag is an alphanumeric string.
+=======
+Note: the flag is an alphanumeric string
+>>>>>>> 7452ab01b3b6a9d96d6a72d1792cf6a168abfa16
 
 ## Solution
 
