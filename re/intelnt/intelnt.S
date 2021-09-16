@@ -1,8 +1,5 @@
 // Each block yields a number in t0.  Decode these as ASCII to get the flag as
 // gigem{$FLAG}
-// 82 73 83 67 86 -> R I S C V
-// Very helpful: https://www.kvakil.me/venus/
-// Flag is then gigem{riscv}
 
 li t0, 164
 srli t2, t0, 3
