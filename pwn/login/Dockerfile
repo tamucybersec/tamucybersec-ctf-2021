@@ -19,4 +19,4 @@ WORKDIR /pwn
 
 EXPOSE $port
 
-ENTRYPOINT ["sh", "-c", "exec socat -s TCP-LISTEN:$port,reuseaddr,fork EXEC:/pwn/tiny,stderr"]
+ENTRYPOINT ["sh", "-c", "exec socat -s TCP-LISTEN:$port,reuseaddr,fork EXEC:/pwn/$name,stderr"]
