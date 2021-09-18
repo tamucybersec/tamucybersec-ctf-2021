@@ -1,6 +1,6 @@
 CC := $(or $(CC),gcc)
 CFLAGS := -fno-stack-protector -no-pie
-NAME := login0
+NAME := login
 PORT := 7000
 all: $(NAME)
 

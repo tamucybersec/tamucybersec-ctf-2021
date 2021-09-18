@@ -2,7 +2,7 @@
 
 from pwn import *
 
-exe = ELF("login0")
+exe = ELF("login")
 
 
 context.binary = exe
