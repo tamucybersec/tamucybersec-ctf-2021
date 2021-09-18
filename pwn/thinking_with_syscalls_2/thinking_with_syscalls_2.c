@@ -1,5 +1,5 @@
 void gadgets() {
-	asm(
+	asm volatile(
 		"pop %rdi; ret;"
 		"pop %rsi; ret;"
 		"pop %rdx; ret;"
@@ -11,8 +11,7 @@ void gadgets() {
 }
 
 void main() {
-    asm
-    (
+    asm volatile(
         "mov $0, %rax;"
         "mov $0, %rdi;"
         "mov %rsp, %rsi;"
@@ -23,7 +22,7 @@ void main() {
 
 int _start() {
 	main();
-    asm(
+    asm volatile(
     	"mov $60, %rax;"
     	"mov $0, %rdi;"
     	"syscall;"
