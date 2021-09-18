@@ -19,4 +19,6 @@ WORKDIR /pwn
 
 EXPOSE $port
 
-ENTRYPOINT ["sh", "-c", "exec socat -s TCP-LISTEN:$port,reuseaddr,fork EXEC:/pwn/$name,stderr"]
+RUN echo "exec socat -s TCP-LISTEN:$port,reuseaddr,fork EXEC:/pwn/$name,stderr" > /pwn/docker_entrypoint.sh
+
+ENTRYPOINT ["sh", "/pwn/docker_entrypoint.sh"]

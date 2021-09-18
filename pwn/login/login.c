@@ -26,5 +26,6 @@ void vuln() {
 }
 
 void main() {
+	setvbuf(stdout, 0, 2, 0);
 	vuln();
 }
