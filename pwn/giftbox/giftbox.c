@@ -63,6 +63,7 @@ void leave_note() {
 	scanf("%d", &select);
 	getchar();
 	char* note = malloc(select);
+	puts("What note would you like to leave? ");
 	fgets(note, select, stdin);
 }
 
@@ -75,7 +76,9 @@ int menu() {
 	puts("4. Leave");
 
 	int select;
-	scanf("%d", &select);
+	if (scanf("%d", &select) != 1) {
+		exit(1);
+	}
 	getchar();
 
 	if(select == 1) {
@@ -92,6 +95,7 @@ int menu() {
 }
 
 int main() {
+	setvbuf(stdout, 0, 2, 0);
 	while(1) {
 		menu();
 	}
