@@ -1,6 +1,6 @@
 CC := $(or $(CC),gcc)
 CFLAGS := -fno-stack-protector -no-pie
-NAME := exposed
+NAME := leaked
 PORT := 7001
 all: $(NAME)
 

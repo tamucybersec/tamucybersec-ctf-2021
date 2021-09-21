@@ -3,7 +3,7 @@
 from pwn import *
 import re
 
-exe = ELF("exposed")
+exe = ELF("leaked")
 rop = ROP(exe)
 
 context.binary = exe
