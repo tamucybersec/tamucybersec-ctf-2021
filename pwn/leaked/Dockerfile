@@ -1,4 +1,4 @@
-FROM debian as build
+FROM debian:buster-slim as build
 
 ARG name
 
@@ -7,7 +7,7 @@ ADD $name.c /tmp/$name.c
 ADD Makefile /tmp/Makefile
 RUN cd /tmp/; make all
 
-FROM debian
+FROM debian:buster-slim
 
 ARG name
 ARG port
