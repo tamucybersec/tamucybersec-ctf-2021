@@ -2,7 +2,7 @@
 
 from pwn import *
 
-exe = ELF("thinking_with_syscalls_2")
+exe = ELF("minimal_2")
 rop = ROP(exe)
 
 context.binary = exe
