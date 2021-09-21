@@ -1,6 +1,6 @@
 CC := $(or $(CC),gcc)
 CFLAGS := -fno-stack-protector -no-pie
-NAME := flag_shredder
+NAME := flag_hole
 PORT := 7003
 all: $(NAME)
 
