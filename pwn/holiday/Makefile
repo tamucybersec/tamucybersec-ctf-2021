@@ -1,6 +1,6 @@
 CC := $(or $(CC),gcc)
 CFLAGS := -fno-stack-protector -no-pie
-NAME := giftbox
+NAME := holiday
 PORT := 7004
 all: $(NAME)
 

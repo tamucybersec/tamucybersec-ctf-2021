@@ -2,7 +2,7 @@
 
 from pwn import *
 
-exe = ELF("giftbox")
+exe = ELF("holiday")
 
 context.binary = exe
 context.terminal = "kitty"
