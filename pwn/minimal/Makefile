@@ -1,6 +1,6 @@
 CC := $(or $(CC),gcc)
 CFLAGS := -nostdlib -fno-stack-protector -no-pie -O0
-NAME := thinking_with_syscalls
+NAME := minimal
 PORT := 7005
 all: $(NAME)
 
