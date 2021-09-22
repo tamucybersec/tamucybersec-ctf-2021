@@ -1,2 +1,8 @@
-# tamucybersec-ctf-2021
-Fall 2021 CTF Competition hosted by Texas A&amp;M Cybersecurity Club
+# Brexif
+
+## Challenge
+Images are pretty cool, but have you ever thought about what's behind the pixels?
+
+## Hints
+- There is a handy tool out there, but what could the name of it possibly be...
+- CLI could be useful
