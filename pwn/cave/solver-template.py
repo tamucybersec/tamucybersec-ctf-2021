@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
 from pwn import *
 
 CHAL = "cave"
 
 p = remote("tamuctf.com", 443, ssl=True, sni=CHAL)
-p.sendline(b"%22$s")
+
+# automate inputs as necessary here
 
 p.interactive()
