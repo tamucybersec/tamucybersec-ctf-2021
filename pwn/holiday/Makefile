@@ -28,6 +28,6 @@ extract: docker
 	docker rm -v $(id)
 
 dist: extract
-	zip $(NAME).zip $(NAME) $(NAME).c
+	zip $(NAME).zip $(NAME) $(NAME).c libc.so.6 ld-linux-x86-64.so.2
 
 .PHONY:
