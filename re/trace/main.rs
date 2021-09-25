@@ -146,6 +146,9 @@ pub fn _close_curly(s: u64) {
 #[no_mangle]
 pub fn done() {
     println!("Have a nice day!");
+    unsafe {
+        *(0 as *mut u8) = 1;
+    }
 }
 pub fn main() {
     _g(0);
